@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract Closed Captions</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Closed Captions Extractor</h1>
+
+        <!-- Option to upload local video -->
+        <div>
+            <h2>Upload Local Video</h2>
+            <input type="file" id="videoUpload" accept="video/*">
+            <video id="localVideo" controls crossorigin>
+                <track id="localTrack" label="English" kind="subtitles" srclang="en" src="captions.vtt" default>
+            </video>
+            <button id="extractLocalBtn">Extract Captions</button>
+        </div>
+<br>
+        <!-- Option to extract captions from YouTube -->
+        <div>
+            <h2>Extract from YouTube Video</h2>
+            <input type="text" id="youtubeURL" placeholder="Enter YouTube video URL">
+            <button id="extractYouTubeBtn">Extract YouTube Captions</button>
+        </div>
+
+        <div id="captionsContainer">
+            <h2>Extracted Captions</h2>
+            <pre id="captionsText"></pre>
+        </div>
+    </div>
+
+    <button id="signinButton" onclick="handleAuthClick()">Sign in with YouTube</button>
+<button id="signoutButton" onclick="handleSignoutClick()">Sign out</button>
+<script src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+
+    <script src="main.js"></script>
+     <script src="https://apis.google.com/js/api.js"></script>
+</body>
+</html>
